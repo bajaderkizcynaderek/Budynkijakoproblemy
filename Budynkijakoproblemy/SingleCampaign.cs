@@ -1,16 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Xml.Serialization;
 
 namespace ObamaWantsChange.model
                           
 {
 	public class SingleCampaign
-
+	{
+		
 	[XmlAttribute]
 	public int id { get; set; }
 
 	[XmlAttribute]
+	public DateTime date { get; set; }
+
+	[XmlAttribute]
 	public Boolean active { get; set; }
+
+	[XmlAttribute]
+	public String name { get; set; }
 
 	[XmlAttribute]
 	public String description { get; set; }
@@ -18,7 +28,7 @@ namespace ObamaWantsChange.model
 	[XmlElement]
 	public List<SingleProduct> Products { get; set; }
 
-	{
+
 		public SingleCampaign()
 		{
 

@@ -39,6 +39,7 @@
     <Compile Include="SingleFix.cs" />
     <Compile Include="SingleProduct.cs" />
     <Compile Include="SingleCampaign.cs" />
+    <Compile Include="SingleClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

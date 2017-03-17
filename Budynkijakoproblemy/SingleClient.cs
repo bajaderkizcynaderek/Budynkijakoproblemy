@@ -5,25 +5,27 @@ using System.Text;
 using System.Xml.Serialization;
 
 namespace ObamaWantsChange.model
+                          
 {
-	public class SingleFix
+	public class SingleClient
 	{
 
 		[XmlAttribute]
 		public int id { get; set; }
 
 		[XmlAttribute]
-		public DateTime date { get; set; }
-
-		[XmlAttribute]
-		public String imageUrl { get; set; }
+		public String name { get; set; }
 
 		[XmlAttribute]
 		public String description { get; set; }
 
-		public SingleFix()
-		// empty contructor is redundant
+		[XmlElement]
+		public List<SingleCampaign> Campaigns { get; set; }
+
+
+		public SingleClient()
 		{
+			this.Campaigns = new List<SingleCampaign>();
 		}
 	}
 }

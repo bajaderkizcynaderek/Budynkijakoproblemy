@@ -10,8 +10,17 @@ namespace ObamaWantsChange.model
 	[XmlRoot]
 	public class MyApplicationModel
 	{
-		//public Budynkimodel()
-		//{
-		//}
+		[XmlElement]
+		public List<SingleClient> Clients;
+
+		public MyApplicationModel()
+		{
+			this.Clients = new List<SingleClient>();
+		}
+
+		public void AddClient(SingleClient client)
+		{
+			Clients.Add(client);
+		}
 	}
 }
