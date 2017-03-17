@@ -40,8 +40,41 @@ namespace ObamaWantsChange
 				System.Console.Write(PROMPT);
 				String command = System.Console.ReadLine();
 			
-			// za chuja nie mam pomysłu jak nawigować po drzewie xml z commandline'a. trzecia kawa!
-				// a teraz musze rozpisac na kartce drzewo danych
+			// to tez na razie przewalam na slepo
+
+
+
+					if (command.Equals("hello"))
+					{
+						System.Console.WriteLine(HELLO);
+					}
+				else if (command.StartsWith("add"))
+				{
+					//String clientName = command.Split(' ')[1];
+
+					// no i co. klient to skomplikowana lista danych, w00t w00t nawet nie wiem jaki to typ
+					// jak napisac entry interface do tego lols.
+					// ide robic hello worldy
+
+					//model.AddClient();
+				}
+					else if (command.StartsWith("save"))
+					{
+						String fileName = command.Split(' ')[1];
+						model.Save(fileName);
+					}
+					else if (command.StartsWith("load"))
+					{
+						String fileName = command.Split(' ')[1];
+						model.Load(fileName);
+					}
+					else if (command.Equals("exit"))
+					{
+						Stop();
+					}
+
+
+				// koniec przewalenia
 
 			
 			}
