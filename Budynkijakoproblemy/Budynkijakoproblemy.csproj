@@ -37,6 +37,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ApplicationModel.cs" />
     <Compile Include="SingleFix.cs" />
+    <Compile Include="SingleProduct.cs" />
+    <Compile Include="SingleCampaign.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
