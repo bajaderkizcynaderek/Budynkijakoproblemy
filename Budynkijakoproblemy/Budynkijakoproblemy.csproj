@@ -33,9 +33,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="programglowny.cs" />
+    <Compile Include="MainApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="modelaplikacji.cs" />
+    <Compile Include="ApplicationModel.cs" />
+    <Compile Include="SingleFix.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

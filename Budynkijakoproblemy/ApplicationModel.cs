@@ -5,10 +5,10 @@ using System.Text;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace ZarzadzanieZmiana.model
+namespace ObamaWantsChange.model
 {
 	[XmlRoot]
-	public class ModelAplikacji
+	public class MyApplicationModel
 	{
 		//public Budynkimodel()
 		//{

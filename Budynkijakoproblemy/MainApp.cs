@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ZarzadzanieZmiana.model;
-// using directive is unnecessary
+using ObamaWantsChange.model;
+// [err] using directive is unnecessary
 
-namespace ZarzadzanieZmiana
+namespace ObamaWantsChange
 {
-	class Aplikacja
+	class MyApplication
 	{
 		// stale i zmienne tutaj
 		// czy program pracuje:
@@ -19,7 +19,7 @@ namespace ZarzadzanieZmiana
 		private const String HELLO = "when in doubt, type 'help'";
 
 		// instancje? obiektow tutaj
-		private ModelAplikacji model = new ModelAplikacji();
+		private MyApplicationModel model = new MyApplicationModel();
 
 		// tu "funkcje", czy też metody
 
@@ -32,6 +32,7 @@ namespace ZarzadzanieZmiana
 		public void Start()
 		{
 			running = true;
+			// [err] name can be simplified
 			System.Console.WriteLine(HELLO);
 
 			while (running)
@@ -40,7 +41,7 @@ namespace ZarzadzanieZmiana
 				String command = System.Console.ReadLine();
 			
 			// za chuja nie mam pomysłu jak nawigować po drzewie xml z commandline'a. trzecia kawa!
-
+				// a teraz musze rozpisac na kartce drzewo danych
 
 			
 			}
@@ -51,8 +52,8 @@ namespace ZarzadzanieZmiana
 		public static void Main(string[] args) //czemu tu jest public w Xa a w VS 2008 nie?
 
 		{
-			Aplikacja InstancjaAplikacji = new Aplikacja();
-			InstancjaAplikacji.Start();
+			MyApplication AppInstance = new MyApplication();
+			AppInstance.Start();
 
 			// Console.WriteLine("Hello World!");
 		}
