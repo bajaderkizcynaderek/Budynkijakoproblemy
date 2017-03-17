@@ -10,8 +10,8 @@ namespace ZarzadzanieZmiana.model
 	[XmlRoot]
 	public class ModelAplikacji
 	{
-		public Budynkimodel()
-		{
-		}
+		//public Budynkimodel()
+		//{
+		//}
 	}
 }
