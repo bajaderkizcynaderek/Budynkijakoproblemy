@@ -18,9 +18,10 @@ namespace ObamaWantsChange.model
 			this.Clients = new List<SingleClient>();
 		}
 
-		public void AddClient(SingleClient client)
+		public void AddClient(SingleClient client) // reeeeetaaard
 		{
-			Clients.Add(client);
+			// Clients.Add(client); retard, bo gupi
+
 		}
 
 		// nastepujacy po tym kod przewalam z przykladu as-is, zmieniajac tylko nazwy

@@ -43,6 +43,7 @@ namespace ObamaWantsChange
 			// to tez na razie przewalam na slepo
 
 
+				// a to mozna zrobic switchem lub jakas tabela/macierza komend??
 
 					if (command.Equals("hello"))
 					{
@@ -56,22 +57,18 @@ namespace ObamaWantsChange
 					// jak napisac entry interface do tego lols.
 					// ide robic hello worldy
 
-					//model.AddClient();
+					//model.AddClient(clientName);
 				}
 					else if (command.StartsWith("save"))
 					{
 						String fileName = command.Split(' ')[1];
-					//if (!String.IsNullOrEmpty(fileName)){
 						model.Save(fileName);
-					//}
 					}
 					else if (command.StartsWith("load"))
 					{
 						String fileName = command.Split(' ')[1];
-					//if (!String.IsNullOrEmpty(fileName))
-					//{
+
 						model.Load(fileName);
-					//}
 					}
 					else if (command.Equals("exit"))
 					{
