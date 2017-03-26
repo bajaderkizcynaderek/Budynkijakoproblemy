@@ -44,15 +44,19 @@ namespace ObamaWantsChange.model
 			// nowy klient
 
 			Console.WriteLine(Txt.NEW_CLIENT_NAME);
+
 			String newClientName = System.Console.ReadLine();
+
 			Console.WriteLine(Txt.NEW_CLIENT_DESC);
+
 			String newClientDescription = System.Console.ReadLine();
 
 			SingleClient clientToAdd = new SingleClient(newClientName, newClientDescription);
-			//clientToAdd.name = newClientName;
-			//clientToAdd.description = newClientDescription;
-			Console.WriteLine(Txt.WHATID);
-			Console.WriteLine(clientToAdd.id);
+
+			Clients.Add(clientToAdd);
+
+			Console.WriteLine("Added Client with ID: "+ clientToAdd.id + " , name: " +clientToAdd.name + ", description: " + clientToAdd.description);
+
 			Console.WriteLine(Txt.DIVIDER);
 
 			// nowa kampania
@@ -68,8 +72,10 @@ namespace ObamaWantsChange.model
 			SingleCampaign campaignToAdd = new SingleCampaign(newCampaignName,newCampaignDescription);
 
 			clientToAdd.Campaigns.Add(campaignToAdd);
-			Console.WriteLine(Txt.WHATID);
-			Console.WriteLine(campaignToAdd.id);
+
+			Console.WriteLine("Added Campaign with ID: " + campaignToAdd.id + " , name: " + clientToAdd.name + ", description: " + clientToAdd.description);
+
+
 			Console.WriteLine(Txt.DIVIDER);
 
 			// urwa, ale jestem glupi. i co teraz, wladowalem to tam i jak sie do tego odwolac... kurwaaaaa
@@ -83,7 +89,19 @@ namespace ObamaWantsChange.model
 
 		public void ListTheList()
 		{
+			Console.WriteLine("****** CURRENT CLIENT LIST");
+			var clientQuery = from SingleClient queried in Clients select queried;
+
+			foreach (SingleClient asked in clientQuery)
+			{
+				Console.WriteLine(Txt.DIVIDER);
+				Console.WriteLine("Client ID         : " + asked.id);
+				Console.WriteLine("Client Name       : " + asked.name);
+				Console.WriteLine("Client Description: " + asked.description);
+				asked.ListCampaigns();
+   
 			
+			}
 		}
 
 

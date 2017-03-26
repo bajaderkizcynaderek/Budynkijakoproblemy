@@ -12,10 +12,10 @@ namespace ObamaWantsChange.model
 		static public int id_Increment;
 
 	[XmlAttribute]
-	public int id { get; set; }
+		public int id { get; set; }
 
 	[XmlAttribute]
-	public DateTime date { get; set; }
+		public DateTime date { get; set; }
 
 	[XmlAttribute]
 	public bool active { get; set; }

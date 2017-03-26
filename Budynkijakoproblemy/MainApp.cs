@@ -35,19 +35,19 @@ namespace ObamaWantsChange
 			{
 				System.Console.Write(Txt.PROMPT);
 				String command = System.Console.ReadLine();
-			
-			
-					if (command.Equals("help"))
-					{
+
+
+				if (command.Equals("help"))
+				{
 					System.Console.WriteLine(Txt.NO_HELP_BITCH);
-					}
+				}
 
 				else if (command.StartsWith("add"))
 				{
-
+					/*
 					bool nullChecker = (String.IsNullOrEmpty(command.Split(' ')[1]));
 					if (!nullChecker)
-
+						// hehe hihi
 					{
 						String subCommand = command.Split(' ')[1];
 						if (subCommand.Equals("client"))
@@ -70,29 +70,37 @@ namespace ObamaWantsChange
 						System.Console.WriteLine(Txt.YOU_FORGOT);
 						return;
 					}
+					*/
 				}
-					else if (command.StartsWith("save"))
-					{
-						String fileName = command.Split(' ')[1];
-						model.Save(fileName);
-					}
-
-				else if (command.StartsWith("shit"))
+				else if (command.StartsWith("save"))
 				{
-					
+					String fileName = command.Split(' ')[1];
+					model.Save(fileName);
+				}
+
+			// Pan wybaczy, probujemy rzucac gownem w sciane
+
+				else if (command.Equals("shit"))
+				{
+
 					model.AddTheShit();
 				}
+				else if (command.Equals("list"))
+				{
 
-					else if (command.StartsWith("load"))
-					{
-						String fileName = command.Split(' ')[1];
+					model.ListTheList();
+				}
 
-						model.Load(fileName);
-					}
-					else if (command.Equals("exit"))
-					{
-						Stop();
-					}
+				else if (command.StartsWith("load"))
+				{
+					String fileName = command.Split(' ')[1];
+
+					model.Load(fileName);
+				}
+				else if (command.Equals("exit"))
+				{
+					Stop();
+				}
 
 
 				// koniec przewalenia

@@ -56,5 +56,26 @@ namespace ObamaWantsChange.model
 			this.description = clientDescription;
 			this.Campaigns = new List<SingleCampaign>();
 		}
+
+		public void ListCampaigns()
+		{
+			Console.WriteLine("*** CURRENT CAMPAIGNS FOR CLIENT: " +name);
+			var clientQuery = from SingleCampaign queried in Campaigns select queried;
+
+			foreach (SingleCampaign asked in clientQuery)
+			{
+				Console.WriteLine(Txt.SHORTDIVIDER);
+				Console.WriteLine("Campaign ID          : " + asked.id);
+				Console.WriteLine("Campaign Name        : " + asked.name);
+				Console.WriteLine("Campaign Description : " + asked.description);
+				Console.WriteLine("Campaign Date        : " + asked.date);
+				Console.WriteLine("Is currently active? : " + asked.active);
+
+				//asked.ListCampaigns();
+
+
+			}
+		}
+
 	}
 }

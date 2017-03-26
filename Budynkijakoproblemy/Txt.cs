@@ -17,6 +17,7 @@ namespace ObamaWantsChange
 		public const String YOU_FORGOT = "You forgot Poland!";
 		public const String WHATID = "Current context ID:";
 		public const String DIVIDER = "- - - - - - - - - - - - - - - - ";
+		public const String SHORTDIVIDER = "- - - - - - - ";
 
 		public const String ADDSHIT = "we are gonna add some shit, you impatient baasteerd:";
 
@@ -24,5 +25,14 @@ namespace ObamaWantsChange
 		{
 			//thisdoesnothing, bwai but it should
 		}
+		/* static public String addedAs (String stringOne, String stringTwo){
+			
+			String addedString = String.Format("Added with {1} and {2}, respectively", stringOne, stringTwo);
+
+			return addedString;
+
+// glupek
+
+		} */
 	}
 }

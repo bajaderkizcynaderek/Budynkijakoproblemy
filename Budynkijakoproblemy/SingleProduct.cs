@@ -58,6 +58,9 @@ namespace ObamaWantsChange.model
 		{
 			//this.Fixes.Add(fix, sentImage, sentContents);
 			// no overload for method add takes 3 arguments czyli po co mi konstruktor ze zmiennymi
+			// czyli nie ma sensu
+			// i duplikuje konstruktor
+
 			this.Fixes.Add(fix);
 		}
 
