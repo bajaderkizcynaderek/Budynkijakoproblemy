@@ -18,21 +18,10 @@ namespace ObamaWantsChange.model
 			this.Clients = new List<SingleClient>();
 		}
 
-		public void AddClient(SingleClient client) // reeeeetaaard
+		public void AddClient(SingleClient client) 
 		{
 
 
-			/* to wpisał pan dyrektor i na chwile to zostawiamy
-			 * 
-			 * SingleProduct product = new SingleProduct();
-			product.id = 5;
-			product.name = "hello";
-
-			SingleProduct product2 = new SingleProduct(1, false, "produkt");
-
-
-			// Console.WriteLine("Hello World!");
-			*/
 		}
 
 		public void AddTheShit()
@@ -141,6 +130,29 @@ namespace ObamaWantsChange.model
 			}
 		}
 
+		public void Navigate()
+		{
+			Console.WriteLine("ENTER [CLIENT ID] OR TYPE EXIT");
+			var clientQuery = from SingleClient queried in Clients select queried;
+
+			foreach (SingleClient asked in clientQuery)
+			{
+				Console.WriteLine(Txt.DIVIDER);
+				Console.WriteLine("ID: " + asked.id+ " | Client Name: " + asked.name);
+				//asked.ListCampaigns();
+
+			}
+
+			System.Console.Write(Txt.NAVIPROMPT);
+			String command = System.Console.ReadLine();
+			int commandint = Convert.ToInt32(command);
+				
+			var item = clientQuery.First(nosek => nosek.id == commandint);
+			item.Navigate();
+
+			//switch command {
+			//}
+		}
 
 		// nastepujacy po tym kod przewalam z przykladu as-is, zmieniajac tylko nazwy
 		// na razie nie chce sie przejmowac operacjami write/read

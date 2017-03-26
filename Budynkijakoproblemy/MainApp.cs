@@ -86,6 +86,11 @@ namespace ObamaWantsChange
 
 					model.ListTheList();
 				}
+				else if (command.Equals("navi"))
+				{
+
+					model.Navigate();
+				}
 
 				else if (command.StartsWith("load"))
 				{

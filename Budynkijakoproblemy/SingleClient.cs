@@ -46,7 +46,29 @@ namespace ObamaWantsChange.model
 			this.Campaigns.Add(campaign);
 		}
 
-	
+	public void Navigate()
+		{
+			Console.WriteLine("ENTER [CAMPAIGN ID] OR TYPE EXIT");
+			var campQuery = from SingleCampaign queried in Campaigns select queried;
+
+			foreach (SingleCampaign asked in campQuery)
+			{
+				Console.WriteLine(Txt.DIVIDER);
+				Console.WriteLine("ID: " + asked.id + " | Campaign Name: " + asked.name);
+				//asked.ListCampaigns();
+
+			}
+
+			System.Console.Write("CLI["+id+"] : "+Txt.NAVIPROMPT);
+			String command = System.Console.ReadLine();
+			int commandint = Convert.ToInt32(command);
+
+			var item = campQuery.First(nosek => nosek.id == commandint);
+			item.ListProducts();
+
+			//switch command {
+			//}
+		}
 
 		public void ListCampaigns()
 		{

@@ -4,6 +4,7 @@ namespace ObamaWantsChange
 	public class Txt
 	{
 		public const String PROMPT = "c:\\>";
+		public const String NAVIPROMPT = "BROWSE>";
 		public const String HELLO = "when in doubt, type 'help'";
 		public const String NO_HELP_BITCH = "Available commands: help, exit, test, list, save [name], load [name]";
 		public const String NEW_CLIENT_NAME = "Enter new client name:";
