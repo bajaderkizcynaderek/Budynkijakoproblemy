@@ -9,7 +9,8 @@ namespace ObamaWantsChange.model
 {
 	public class SingleCampaign
 	{
-		
+		static public int id_Increment;
+
 	[XmlAttribute]
 	public int id { get; set; }
 
@@ -31,12 +32,20 @@ namespace ObamaWantsChange.model
 
 		public SingleCampaign()
 		{
-
-				// tego nie czaje. skoro definiuje to jako zmienna to co to jest, instancja? 
-			// czym sie rozni zdefiniowanie tego jako public... a new ...
-
+			id_Increment++;
+			this.id = id_Increment;
 			this.Products = new List<SingleProduct>();
+			this.active = true;
 
+		}
+
+		public void Die(){
+			this.active = false;
+		}
+
+		public void Activate()
+		{
+			this.active = true;
 		}
 	}
 }

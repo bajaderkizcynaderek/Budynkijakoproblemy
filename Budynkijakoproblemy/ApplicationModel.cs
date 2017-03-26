@@ -20,7 +20,7 @@ namespace ObamaWantsChange.model
 
 		public void AddClient(SingleClient client) // reeeeetaaard
 		{
-			// Clients.Add(client); retard, bo gupi
+		//	this.Clients.Add(client); //retard, bo gupi
 
 		}
 

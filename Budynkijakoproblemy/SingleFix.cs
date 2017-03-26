@@ -9,6 +9,8 @@ namespace ObamaWantsChange.model
 	public class SingleFix
 	{
 
+		static public int id_Increment;
+
 		[XmlAttribute]
 		public int id { get; set; }
 
@@ -24,6 +26,20 @@ namespace ObamaWantsChange.model
 		public SingleFix()
 		// empty contructor is redundant
 		{
+			id_Increment++;
+			this.id = id_Increment;
+			this.date = DateTime.Now;
+
+		}
+		public SingleFix(String sentImage, String sentDescription)
+		// empty contructor is redundant
+		{
+			id_Increment++;
+			this.id = id_Increment;
+			this.date = DateTime.Now;
+			this.imageUrl = sentImage;
+			this.description = sentDescription;
+
 		}
 	}
 }

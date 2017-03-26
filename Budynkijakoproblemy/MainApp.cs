@@ -9,19 +9,25 @@ namespace ObamaWantsChange
 {
 	class MyApplication
 	{
-		// stale i zmienne tutaj
-		// czy program pracuje:
 		private Boolean running = false;
 
-		// stringi tutaj
-		// ble bla bla
 		private const String PROMPT = "c:\\>";
 		private const String HELLO = "when in doubt, type 'help'";
+		private const String NO_HELP_BITCH = "There is no spoon and there is no help.";
+		private const String NEW_CLIENT_NAME = "Enter new client name:";
+		private const String NEW_CLIENT_DESC = "Enter new client description:";
+		private const String NEW_CAMPAIGN_NAME = "Enter new campaign name:";
+		private const String NEW_CAMPAIGN_DESC = "Enter new campaign description:";
+		private const String NEW_PRODUCT_NAME = "Enter new product name:";
+		private const String NEW_PRODUCT_DESC = "Enter new product description:";
+		private const String NEW_FIX_NAME = "Give your fix a name:";
+		private const String NEW_FIX_DESC = "Explain what you did:";
+		private const String YOU_FORGOT = "You forgot Poland!";
 
-		// instancje? obiektow tutaj
+
+
 		private MyApplicationModel model = new MyApplicationModel();
 
-		// tu "funkcje", czy też metody
 
 		public void Stop() 
 		{
@@ -33,31 +39,45 @@ namespace ObamaWantsChange
 		{
 			running = true;
 			// [err] name can be simplified
-			System.Console.WriteLine(HELLO);
+			Console.WriteLine(HELLO);
 
 			while (running)
 			{
 				System.Console.Write(PROMPT);
 				String command = System.Console.ReadLine();
 			
-			// to tez na razie przewalam na slepo
-
-
-				// a to mozna zrobic switchem lub jakas tabela/macierza komend??
-
-					if (command.Equals("hello"))
+			
+					if (command.Equals("help"))
 					{
-						System.Console.WriteLine(HELLO);
+					System.Console.WriteLine(NO_HELP_BITCH);
 					}
+
 				else if (command.StartsWith("add"))
 				{
-					//String clientName = command.Split(' ')[1];
 
-					// no i co. klient to skomplikowana lista danych, w00t w00t nawet nie wiem jaki to typ
-					// jak napisac entry interface do tego lols.
-					// ide robic hello worldy
+					bool nullChecker = (String.IsNullOrEmpty(command.Split(' ')[1]));
+					if (!nullChecker)
 
-					//model.AddClient(clientName);
+					{
+						String subCommand = command.Split(' ')[1];
+						if (subCommand.Equals("client"))
+						{
+						}
+						// no i co. klient to skomplikowana lista danych, w00t w00t nawet nie wiem jaki to typ
+						// jak napisac entry interface do tego lols.
+						// ide robic hello worldy
+
+						//model.AddClient(clientName);
+						// SingleClient client = new SingleClient();
+						// client.AddCampaign(new SingleCampaign());
+						// model.AddClient(client);
+
+					}
+					else
+					{
+						System.Console.WriteLine(YOU_FORGOT);
+						return;
+					}
 				}
 					else if (command.StartsWith("save"))
 					{
@@ -90,7 +110,20 @@ namespace ObamaWantsChange
 			MyApplication AppInstance = new MyApplication();
 			AppInstance.Start();
 
+
+			/* to wpisał pan dyrektor i na chwile to zostawiamy
+			 * 
+			 * SingleProduct product = new SingleProduct();
+			product.id = 5;
+			product.name = "hello";
+
+			SingleProduct product2 = new SingleProduct(1, false, "produkt");
+
+
 			// Console.WriteLine("Hello World!");
+			*/
+
+
 		}
 	}
 }

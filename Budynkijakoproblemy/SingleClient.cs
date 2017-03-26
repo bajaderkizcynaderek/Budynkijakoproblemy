@@ -10,6 +10,8 @@ namespace ObamaWantsChange.model
 	public class SingleClient
 	{
 
+		static public int id_Increment;
+
 		[XmlAttribute]
 		public int id { get; set; }
 
@@ -23,8 +25,34 @@ namespace ObamaWantsChange.model
 		public List<SingleCampaign> Campaigns { get; set; }
 
 
+
 		public SingleClient()
 		{
+			id_Increment++;
+			this.id = id_Increment;
+			this.Campaigns = new List<SingleCampaign>();
+		}
+
+		public SingleClient(String clientName, String clientDescription)
+		{
+			id_Increment++;
+			this.id = id_Increment;
+			this.name = clientName;
+			this.description = clientDescription;
+			this.Campaigns = new List<SingleCampaign>();
+		}
+
+		public void AddCampaign(SingleCampaign campaign)
+		{
+			this.Campaigns.Add(campaign);
+		}
+
+		public void Add(String clientName, String clientDescription)
+		{
+			id_Increment++;
+			this.id = id_Increment;
+			this.name = clientName;
+			this.description = clientDescription;
 			this.Campaigns = new List<SingleCampaign>();
 		}
 	}
