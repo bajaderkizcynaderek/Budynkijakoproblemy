@@ -83,16 +83,25 @@ namespace ObamaWantsChange.model
 		{
 			this.active = true;
 		}
-		/* ne rozumi :)
-		 * 
-		public getActiveProducts(Products )
+
+		public void ListProducts()
 		{
-			// tu wywala te z flaga akt
+			Console.WriteLine("** CURRENT PRODUCTS FOR CAMPAIGN: " + name);
+			var clientQuery = from SingleProduct queried in Products select queried;
+
+			foreach (SingleProduct asked in clientQuery)
+			{
+				Console.WriteLine(Txt.SHORTDIVIDER);
+				Console.WriteLine("    Product ID           : " + asked.id);
+				Console.WriteLine("    Product Name         : " + asked.name);
+				Console.WriteLine("    Product Description  : " + asked.description);
+				Console.WriteLine("    Is currently active? : " + asked.active);
+
+				asked.ListFixes();
+
+
+			}
 		}
-		public getAllProducts(Products))
-		{
-			// tu wywala wszystkie, co to zwraca??? liste obiektow products,lol
-		}
-*/
+
 	}
 }

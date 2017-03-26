@@ -65,13 +65,13 @@ namespace ObamaWantsChange.model
 			foreach (SingleCampaign asked in clientQuery)
 			{
 				Console.WriteLine(Txt.SHORTDIVIDER);
-				Console.WriteLine("Campaign ID          : " + asked.id);
-				Console.WriteLine("Campaign Name        : " + asked.name);
-				Console.WriteLine("Campaign Description : " + asked.description);
-				Console.WriteLine("Campaign Date        : " + asked.date);
-				Console.WriteLine("Is currently active? : " + asked.active);
+				Console.WriteLine("  Campaign ID          : " + asked.id);
+				Console.WriteLine("  Campaign Name        : " + asked.name);
+				Console.WriteLine("  Campaign Description : " + asked.description);
+				Console.WriteLine("  Campaign Date        : " + asked.date);
+				Console.WriteLine("  Is currently active? : " + asked.active);
 
-				//asked.ListCampaigns();
+				asked.ListProducts();
 
 
 			}

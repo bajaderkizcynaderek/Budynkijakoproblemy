@@ -23,8 +23,6 @@ namespace ObamaWantsChange.model
 		[XmlAttribute]
 		public String description { get; set; }
 
-		//public String sentImage;
-		//public String sentDescription;
 
 		public SingleFix()
 

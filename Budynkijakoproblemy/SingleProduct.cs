@@ -52,17 +52,7 @@ namespace ObamaWantsChange.model
 			this.Fixes.Add(fix);
 		}
 
-		// czy to w ogole ma sens?
 
-		public void AddFixWithContents(SingleFix fix, String sentImage, String sentContents)
-		{
-			//this.Fixes.Add(fix, sentImage, sentContents);
-			// no overload for method add takes 3 arguments czyli po co mi konstruktor ze zmiennymi
-			// czyli nie ma sensu
-			// i duplikuje konstruktor
-
-			this.Fixes.Add(fix);
-		}
 
 		public void Deactivate()
 		{
@@ -81,7 +71,23 @@ namespace ObamaWantsChange.model
 			this.description = sentDescription;
 
 		}
+		public void ListFixes()
+		{
+			Console.WriteLine("* CURRENT FIXES FOR PRODUCT: " + name);
+			var clientQuery = from SingleFix queried in Fixes select queried;
 
+			foreach (SingleFix asked in clientQuery)
+			{
+				Console.WriteLine(Txt.SHORTDIVIDER);
+				Console.WriteLine("        Fix ID               : " + asked.id);
+				Console.WriteLine("        Fix Image URL        : " + asked.imageUrl);
+				Console.WriteLine("        Fix Description      : " + asked.description);
+				Console.WriteLine("        Fix Date             : " + asked.date);
+			
+
+
+			}
+		}
 
 	}
 }

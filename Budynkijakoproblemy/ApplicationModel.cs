@@ -37,7 +37,11 @@ namespace ObamaWantsChange.model
 
 		public void AddTheShit()
 		{
-		// b/c i'm impatient
+		// b/c i'm impatient, co za gowno posrane. na bank trzeba to przewalic do odpowiednich obiektow 
+			// aaaale nieeee wieeem jaaaaaaaaaaaaaaaaaak
+			// tak samo obiekty nie powinny same robic writeline
+			// tylko zwracac wartosci do renderera, aleeeee nieeee wieeeeem jeszczeeee
+			// JAAAAAAAAAAAK
 
 			Console.WriteLine(Txt.ADDSHIT);
 
@@ -78,12 +82,45 @@ namespace ObamaWantsChange.model
 
 			Console.WriteLine(Txt.DIVIDER);
 
-			// urwa, ale jestem glupi. i co teraz, wladowalem to tam i jak sie do tego odwolac... kurwaaaaa
 			// nowy produkt
-			// na razie zostawmy zobaczmy czy nie zadeklarowalem tego lokalnie
+
+			Console.WriteLine(Txt.NEW_PRODUCT_NAME);
+
+			String newProductName = System.Console.ReadLine();
+
+			Console.WriteLine(Txt.NEW_PRODUCT_DESC);
+
+			String newProductDescription = System.Console.ReadLine();
+
+			SingleProduct productToAdd = new SingleProduct(newProductName, newProductDescription);
+
+			campaignToAdd.Products.Add(productToAdd);
 
 
+			Console.WriteLine("Added Product with ID: " + productToAdd.id + " , name: " + productToAdd.name + ", description: " + productToAdd.description);
 
+
+			Console.WriteLine(Txt.DIVIDER);
+
+			// i nowy, testowy fiks
+
+			Console.WriteLine(Txt.NEW_FIX_DESC);
+
+			String newFixDesc = System.Console.ReadLine();
+
+			Console.WriteLine(Txt.NEW_FIX_URL);
+
+			String newFixUrl = System.Console.ReadLine();
+
+			SingleFix fixToAdd = new SingleFix(newFixUrl, newFixDesc);
+
+			productToAdd.Fixes.Add(fixToAdd);
+
+
+			Console.WriteLine("Added fix with ID: " + fixToAdd.id + " , description: " + fixToAdd.description + ", image URL: " + fixToAdd.imageUrl);
+
+
+			Console.WriteLine(Txt.DIVIDER);
 
 		}
 
@@ -136,7 +173,7 @@ namespace ObamaWantsChange.model
 
 		private Stream CreateInputStream(String fileName)
 		{
-			Stream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
+				Stream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
 
 			return stream;
 		}

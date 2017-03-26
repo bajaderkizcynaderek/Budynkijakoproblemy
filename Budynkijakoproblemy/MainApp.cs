@@ -12,9 +12,6 @@ namespace ObamaWantsChange
 		private Boolean running = false;
 		private MyApplicationModel model = new MyApplicationModel();
 
-		private Txt text = new Txt();
-
-		// co do kurwy nedzy, czemu mi to rzuca bledy jak chce sie odwolac przez klase nie obiekt, wtf
 
 		public void Stop() 
 		{
@@ -29,7 +26,6 @@ namespace ObamaWantsChange
 
 			Console.WriteLine(Txt.HELLO);
 
-			// WHHHHHYYYYYYYYY Whyyyyy
 
 			while (running)
 			{
@@ -80,7 +76,7 @@ namespace ObamaWantsChange
 
 			// Pan wybaczy, probujemy rzucac gownem w sciane
 
-				else if (command.Equals("shit"))
+				else if (command.Equals("test"))
 				{
 
 					model.AddTheShit();
