@@ -10,46 +10,36 @@ namespace ObamaWantsChange
 	class MyApplication
 	{
 		private Boolean running = false;
-
-		private const String PROMPT = "c:\\>";
-		private const String HELLO = "when in doubt, type 'help'";
-		private const String NO_HELP_BITCH = "There is no spoon and there is no help.";
-		private const String NEW_CLIENT_NAME = "Enter new client name:";
-		private const String NEW_CLIENT_DESC = "Enter new client description:";
-		private const String NEW_CAMPAIGN_NAME = "Enter new campaign name:";
-		private const String NEW_CAMPAIGN_DESC = "Enter new campaign description:";
-		private const String NEW_PRODUCT_NAME = "Enter new product name:";
-		private const String NEW_PRODUCT_DESC = "Enter new product description:";
-		private const String NEW_FIX_NAME = "Give your fix a name:";
-		private const String NEW_FIX_DESC = "Explain what you did:";
-		private const String YOU_FORGOT = "You forgot Poland!";
-
-
-
 		private MyApplicationModel model = new MyApplicationModel();
 
+		private Txt text = new Txt();
+
+		// co do kurwy nedzy, czemu mi to rzuca bledy jak chce sie odwolac przez klase nie obiekt, wtf
 
 		public void Stop() 
 		{
-			// czyli tym generujemy metode Aplikacja.Stop() ?
+			
 			running = false;
 		}
 
 		public void Start()
 		{
+			
 			running = true;
-			// [err] name can be simplified
-			Console.WriteLine(HELLO);
+
+			Console.WriteLine(Txt.HELLO);
+
+			// WHHHHHYYYYYYYYY Whyyyyy
 
 			while (running)
 			{
-				System.Console.Write(PROMPT);
+				System.Console.Write(Txt.PROMPT);
 				String command = System.Console.ReadLine();
 			
 			
 					if (command.Equals("help"))
 					{
-					System.Console.WriteLine(NO_HELP_BITCH);
+					System.Console.WriteLine(Txt.NO_HELP_BITCH);
 					}
 
 				else if (command.StartsWith("add"))
@@ -63,6 +53,8 @@ namespace ObamaWantsChange
 						if (subCommand.Equals("client"))
 						{
 						}
+						// tu bedzie model.addclient....
+
 						// no i co. klient to skomplikowana lista danych, w00t w00t nawet nie wiem jaki to typ
 						// jak napisac entry interface do tego lols.
 						// ide robic hello worldy
@@ -75,7 +67,7 @@ namespace ObamaWantsChange
 					}
 					else
 					{
-						System.Console.WriteLine(YOU_FORGOT);
+						System.Console.WriteLine(Txt.YOU_FORGOT);
 						return;
 					}
 				}
@@ -84,6 +76,13 @@ namespace ObamaWantsChange
 						String fileName = command.Split(' ')[1];
 						model.Save(fileName);
 					}
+
+				else if (command.StartsWith("shit"))
+				{
+					
+					model.AddTheShit();
+				}
+
 					else if (command.StartsWith("load"))
 					{
 						String fileName = command.Split(' ')[1];
@@ -104,26 +103,19 @@ namespace ObamaWantsChange
 		}
 
 
-		public static void Main(string[] args) //czemu tu jest public w Xa a w VS 2008 nie?
+		public static void Main(string[] args) 
 
 		{
 			MyApplication AppInstance = new MyApplication();
+
 			AppInstance.Start();
 
 
-			/* to wpisał pan dyrektor i na chwile to zostawiamy
-			 * 
-			 * SingleProduct product = new SingleProduct();
-			product.id = 5;
-			product.name = "hello";
-
-			SingleProduct product2 = new SingleProduct(1, false, "produkt");
-
-
-			// Console.WriteLine("Hello World!");
-			*/
 
 
 		}
+
+
+
 	}
 }

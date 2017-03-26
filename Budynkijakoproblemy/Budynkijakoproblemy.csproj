@@ -40,6 +40,7 @@
     <Compile Include="SingleProduct.cs" />
     <Compile Include="SingleCampaign.cs" />
     <Compile Include="SingleClient.cs" />
+    <Compile Include="Txt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

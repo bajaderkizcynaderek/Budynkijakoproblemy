@@ -23,23 +23,57 @@ namespace ObamaWantsChange.model
 		[XmlAttribute]
 		public String description { get; set; }
 
+		//public String sentImage;
+		//public String sentDescription;
+
 		public SingleFix()
-		// empty contructor is redundant
+
 		{
 			id_Increment++;
 			this.id = id_Increment;
-			this.date = DateTime.Now;
+			DateTime tempDate = DateTime.Now;
+			this.date = tempDate;
 
 		}
 		public SingleFix(String sentImage, String sentDescription)
-		// empty contructor is redundant
+
 		{
 			id_Increment++;
 			this.id = id_Increment;
-			this.date = DateTime.Now;
+			DateTime tempDate = DateTime.Now;
+			this.date = tempDate;
 			this.imageUrl = sentImage;
 			this.description = sentDescription;
 
 		}
+
+		public void Add(String sentImage, String sentDescription)
+
+		{
+			id_Increment++;
+			this.id = id_Increment;
+			DateTime tempDate = DateTime.Now;
+			this.date = tempDate;
+			this.imageUrl = sentImage;
+			this.description = sentDescription;
+
+		}
+		public void Add()
+
+		{
+			id_Increment++;
+			this.id = id_Increment;
+			DateTime tempDate = DateTime.Now;
+			this.date = tempDate;
+	
+		}
+		public void Modify(String sentImage, String sentDescription)
+
+		{
+			this.imageUrl = sentImage;
+			this.description = sentDescription;
+
+		}
+	
 	}
 }

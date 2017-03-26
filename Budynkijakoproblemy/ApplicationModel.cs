@@ -20,9 +20,72 @@ namespace ObamaWantsChange.model
 
 		public void AddClient(SingleClient client) // reeeeetaaard
 		{
-		//	this.Clients.Add(client); //retard, bo gupi
+
+
+			/* to wpisał pan dyrektor i na chwile to zostawiamy
+			 * 
+			 * SingleProduct product = new SingleProduct();
+			product.id = 5;
+			product.name = "hello";
+
+			SingleProduct product2 = new SingleProduct(1, false, "produkt");
+
+
+			// Console.WriteLine("Hello World!");
+			*/
+		}
+
+		public void AddTheShit()
+		{
+		// b/c i'm impatient
+
+			Console.WriteLine(Txt.ADDSHIT);
+
+			// nowy klient
+
+			Console.WriteLine(Txt.NEW_CLIENT_NAME);
+			String newClientName = System.Console.ReadLine();
+			Console.WriteLine(Txt.NEW_CLIENT_DESC);
+			String newClientDescription = System.Console.ReadLine();
+
+			SingleClient clientToAdd = new SingleClient(newClientName, newClientDescription);
+			//clientToAdd.name = newClientName;
+			//clientToAdd.description = newClientDescription;
+			Console.WriteLine(Txt.WHATID);
+			Console.WriteLine(clientToAdd.id);
+			Console.WriteLine(Txt.DIVIDER);
+
+			// nowa kampania
+
+			Console.WriteLine(Txt.NEW_CAMPAIGN_NAME);
+
+			String newCampaignName = System.Console.ReadLine();
+
+			Console.WriteLine(Txt.NEW_CAMPAIGN_DESC);
+
+			String newCampaignDescription = System.Console.ReadLine();
+
+			SingleCampaign campaignToAdd = new SingleCampaign(newCampaignName,newCampaignDescription);
+
+			clientToAdd.Campaigns.Add(campaignToAdd);
+			Console.WriteLine(Txt.WHATID);
+			Console.WriteLine(campaignToAdd.id);
+			Console.WriteLine(Txt.DIVIDER);
+
+			// urwa, ale jestem glupi. i co teraz, wladowalem to tam i jak sie do tego odwolac... kurwaaaaa
+			// nowy produkt
+			// na razie zostawmy zobaczmy czy nie zadeklarowalem tego lokalnie
+
+
+
 
 		}
+
+		public void ListTheList()
+		{
+			
+		}
+
 
 		// nastepujacy po tym kod przewalam z przykladu as-is, zmieniajac tylko nazwy
 		// na razie nie chce sie przejmowac operacjami write/read

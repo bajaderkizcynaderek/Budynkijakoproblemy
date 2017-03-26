@@ -16,7 +16,7 @@ namespace ObamaWantsChange.model
 		public int id { get; set; }
 
 		[XmlAttribute]
-		public Boolean active { get; set; }
+		public bool active { get; set; }
 
 		[XmlAttribute]
 		public String name { get; set; }
@@ -28,26 +28,40 @@ namespace ObamaWantsChange.model
 		public List<SingleFix> Fixes { get; set; }
 
 
-		public SingleProduct()
+
+		public SingleProduct(String sentName, String sentDescription)
 		{
-
-			// tego nie czaje. skoro definiuje to jako zmienna to co to jest, instancja? 
-			// czym sie rozni zdefiniowanie tego jako public... a new ...
-			//this.id = 1;
-			//this.name = "djdjdj";
-
+			id_Increment++;
+			this.id = id_Increment;
 			this.Fixes = new List<SingleFix>();
 			this.active = true;
+			this.name = sentName;
+			this.description = sentDescription;
+		}
+		public SingleProduct()
+		{
+			id_Increment++;
+			this.id = id_Increment;
+			this.Fixes = new List<SingleFix>();
+			this.active = true;
+
 		}
 
-		//public SingleProduct(int id, Boolean active, String name)
-		//{
-			//this.id = id;
-			//this.active = active;
-			//this.name = name;
-		//}
+		public void AddFix(SingleFix fix)
+		{
+			this.Fixes.Add(fix);
+		}
 
-		public void Die()
+		// czy to w ogole ma sens?
+
+		public void AddFixWithContents(SingleFix fix, String sentImage, String sentContents)
+		{
+			//this.Fixes.Add(fix, sentImage, sentContents);
+			// no overload for method add takes 3 arguments czyli po co mi konstruktor ze zmiennymi
+			this.Fixes.Add(fix);
+		}
+
+		public void Deactivate()
 		{
 			this.active = false;
 		}
@@ -57,6 +71,13 @@ namespace ObamaWantsChange.model
 			this.active = true;
 		}
 
+		public void Modify(String sentName, String sentDescription)
+
+		{
+			this.name = sentName;
+			this.description = sentDescription;
+
+		}
 
 
 	}

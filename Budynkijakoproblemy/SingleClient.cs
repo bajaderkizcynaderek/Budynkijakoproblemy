@@ -24,7 +24,8 @@ namespace ObamaWantsChange.model
 		[XmlElement]
 		public List<SingleCampaign> Campaigns { get; set; }
 
-
+		//public String clientName;
+		//public String clientDescription;
 
 		public SingleClient()
 		{

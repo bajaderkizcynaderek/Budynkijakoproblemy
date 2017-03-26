@@ -18,7 +18,7 @@ namespace ObamaWantsChange.model
 	public DateTime date { get; set; }
 
 	[XmlAttribute]
-	public Boolean active { get; set; }
+	public bool active { get; set; }
 
 	[XmlAttribute]
 	public String name { get; set; }
@@ -29,17 +29,53 @@ namespace ObamaWantsChange.model
 	[XmlElement]
 	public List<SingleProduct> Products { get; set; }
 
+		//public String sentName;
+		//public String sentDescription;
 
 		public SingleCampaign()
 		{
 			id_Increment++;
 			this.id = id_Increment;
+			DateTime tempDate = DateTime.Now;
+			this.date = tempDate;
 			this.Products = new List<SingleProduct>();
 			this.active = true;
 
 		}
 
-		public void Die(){
+
+		public SingleCampaign(String sentName, String sentDescription)
+		{
+			id_Increment++;
+			this.id = id_Increment;
+			DateTime tempDate = DateTime.Now;
+			this.date = tempDate;
+			this.Products = new List<SingleProduct>();
+			this.active = true;
+			this.name = sentName;
+			this.description = sentDescription;
+
+		}
+
+		public void Add( String sentName, String sentDescription)
+		{
+			id_Increment++;
+			this.id = id_Increment;
+			DateTime tempDate = DateTime.Now;
+			this.date = tempDate;
+			this.Products = new List<SingleProduct>();
+			this.active = true;
+			this.name = sentName;
+			this.description = sentDescription;
+
+		}
+
+		public void AddProduct(SingleProduct product)
+		{
+			this.Products.Add(product);
+		}
+
+		public void Deactivate(){
 			this.active = false;
 		}
 
@@ -47,5 +83,16 @@ namespace ObamaWantsChange.model
 		{
 			this.active = true;
 		}
+		/* ne rozumi :)
+		 * 
+		public getActiveProducts(Products )
+		{
+			// tu wywala te z flaga akt
+		}
+		public getAllProducts(Products))
+		{
+			// tu wywala wszystkie, co to zwraca??? liste obiektow products,lol
+		}
+*/
 	}
 }
