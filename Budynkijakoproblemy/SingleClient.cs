@@ -24,8 +24,6 @@ namespace ObamaWantsChange.model
 		[XmlElement]
 		public List<SingleCampaign> Campaigns { get; set; }
 
-		//public String clientName;
-		//public String clientDescription;
 
 		public SingleClient()
 		{
@@ -48,14 +46,7 @@ namespace ObamaWantsChange.model
 			this.Campaigns.Add(campaign);
 		}
 
-		public void Add(String clientName, String clientDescription)
-		{
-			id_Increment++;
-			this.id = id_Increment;
-			this.name = clientName;
-			this.description = clientDescription;
-			this.Campaigns = new List<SingleCampaign>();
-		}
+	
 
 		public void ListCampaigns()
 		{

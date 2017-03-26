@@ -29,8 +29,7 @@ namespace ObamaWantsChange.model
 	[XmlElement]
 	public List<SingleProduct> Products { get; set; }
 
-		//public String sentName;
-		//public String sentDescription;
+	
 
 		public SingleCampaign()
 		{
@@ -57,18 +56,7 @@ namespace ObamaWantsChange.model
 
 		}
 
-		public void Add( String sentName, String sentDescription)
-		{
-			id_Increment++;
-			this.id = id_Increment;
-			DateTime tempDate = DateTime.Now;
-			this.date = tempDate;
-			this.Products = new List<SingleProduct>();
-			this.active = true;
-			this.name = sentName;
-			this.description = sentDescription;
 
-		}
 
 		public void AddProduct(SingleProduct product)
 		{

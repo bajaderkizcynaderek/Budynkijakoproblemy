@@ -45,26 +45,9 @@ namespace ObamaWantsChange.model
 
 		}
 
-		public void Add(String sentImage, String sentDescription)
 
-		{
-			id_Increment++;
-			this.id = id_Increment;
-			DateTime tempDate = DateTime.Now;
-			this.date = tempDate;
-			this.imageUrl = sentImage;
-			this.description = sentDescription;
-
-		}
-		public void Add()
-
-		{
-			id_Increment++;
-			this.id = id_Increment;
-			DateTime tempDate = DateTime.Now;
-			this.date = tempDate;
 	
-		}
+
 		public void Modify(String sentImage, String sentDescription)
 
 		{
