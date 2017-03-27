@@ -40,6 +40,7 @@ namespace ObamaWantsChange
 
 				else if (command.StartsWith("add"))
 				{
+				    this.AddTheShit();
 					/*
 					bool nullChecker = (String.IsNullOrEmpty(command.Split(' ')[1]));
 					if (!nullChecker)
@@ -112,12 +113,6 @@ namespace ObamaWantsChange
 
 		public void AddTheShit()
 		{
-			// b/c i'm impatient, co za gowno posrane. na bank trzeba to przewalic do odpowiednich obiektow 
-			// aaaale nieeee wieeem jaaaaaaaaaaaaaaaaaak
-			// tak samo obiekty nie powinny same robic writeline
-			// tylko zwracac wartosci do renderera, aleeeee nieeee wieeeeem jeszczeeee
-			// JAAAAAAAAAAAK
-
 			Console.WriteLine(Txt.ADDSHIT);
 
 			SingleClient client = CreateNewClient();
@@ -159,7 +154,6 @@ namespace ObamaWantsChange
 
 
 			Console.WriteLine(Txt.DIVIDER);
-
 		}
 
 	    private SingleClient CreateNewClient()
@@ -174,6 +168,67 @@ namespace ObamaWantsChange
 
 	        Console.WriteLine(Txt.DIVIDER);
 	        return client;
+	    }
+
+	    public void ListTheList()
+	    {
+	        Console.WriteLine("****** CURRENT CLIENT LIST");
+
+	        ListClients(model.Clients);
+	    }
+
+	    private void ListClients(IEnumerable<SingleClient> clientQuery)
+	    {
+	        foreach (SingleClient asked in clientQuery)
+	        {
+	            Console.WriteLine(Txt.DIVIDER);
+	            Console.WriteLine("Client ID         : " + asked.Id);
+	            Console.WriteLine("Client Name       : " + asked.Name);
+	            Console.WriteLine("Client Description: " + asked.Description);
+	            ListCampaigns(asked.Campaigns);
+	        }
+	    }
+
+	    private void ListCampaigns(IEnumerable<SingleCampaign> campaigns)
+	    {
+	        foreach (SingleCampaign asked in campaigns)
+	        {
+	            Console.WriteLine(Txt.SHORTDIVIDER);
+	            Console.WriteLine("  Campaign ID          : " + asked.id);
+	            Console.WriteLine("  Campaign Name        : " + asked.name);
+	            Console.WriteLine("  Campaign Description : " + asked.description);
+	            Console.WriteLine("  Campaign Date        : " + asked.date);
+	            Console.WriteLine("  Is currently active? : " + asked.active);
+
+	            ListProducts(asked.Products);
+
+	        }
+	    }
+
+	    private void ListProducts(IEnumerable<SingleProduct> products)
+	    {
+			foreach (SingleProduct asked in products)
+			{
+				Console.WriteLine(Txt.SHORTDIVIDER);
+				Console.WriteLine("    Product ID           : " + asked.id);
+				Console.WriteLine("    Product Name         : " + asked.name);
+				Console.WriteLine("    Product Description  : " + asked.description);
+				Console.WriteLine("    Is currently active? : " + asked.active);
+
+			    ListFixes(asked.Fixes);
+			}
+	    }
+
+	    private void ListFixes(List<SingleFix> fixes)
+	    {
+	        foreach (SingleFix asked in fixes)
+	        {
+	            Console.WriteLine(Txt.SHORTDIVIDER);
+	            Console.WriteLine("        Fix ID               : " + asked.id);
+	            Console.WriteLine("        Fix Image URL        : " + asked.imageUrl);
+	            Console.WriteLine("        Fix Description      : " + asked.description);
+	            Console.WriteLine("        Fix Date             : " + asked.date);
+	        }
 	    }
 
 	    public static void Main(string[] args)
