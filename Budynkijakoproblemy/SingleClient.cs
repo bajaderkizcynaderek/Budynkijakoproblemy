@@ -10,16 +10,16 @@ namespace ObamaWantsChange.model
 	public class SingleClient
 	{
 
-		static public int id_Increment;
+	    private static int lastId;
 
 		[XmlAttribute]
-		public int id { get; set; }
+		public int Id { get; set; }
 
 		[XmlAttribute]
-		public String name { get; set; }
+		public String Name { get; set; }
 
 		[XmlAttribute]
-		public String description { get; set; }
+		public String Description { get; set; }
 
 		[XmlElement]
 		public List<SingleCampaign> Campaigns { get; set; }
@@ -27,17 +27,17 @@ namespace ObamaWantsChange.model
 
 		public SingleClient()
 		{
-			id_Increment++;
-			this.id = id_Increment;
+			lastId++;
+			this.Id = lastId;
 			this.Campaigns = new List<SingleCampaign>();
 		}
 
 		public SingleClient(String clientName, String clientDescription)
 		{
-			id_Increment++;
-			this.id = id_Increment;
-			this.name = clientName;
-			this.description = clientDescription;
+			lastId++;
+			this.Id = lastId;
+			this.Name = clientName;
+			this.Description = clientDescription;
 			this.Campaigns = new List<SingleCampaign>();
 		}
 
@@ -46,7 +46,15 @@ namespace ObamaWantsChange.model
 			this.Campaigns.Add(campaign);
 		}
 
-	public void Navigate()
+	    public SingleCampaign AddCampaign(String newCampaignName, String newCampaignDescription)
+	    {
+	        SingleCampaign campaign = new SingleCampaign(newCampaignName, newCampaignDescription);
+	        AddCampaign(campaign);
+
+	        return campaign;
+	    }
+
+		public void Navigate()
 		{
 			Console.WriteLine("ENTER [CAMPAIGN ID] OR TYPE EXIT");
 			var campQuery = from SingleCampaign queried in Campaigns select queried;
@@ -59,7 +67,7 @@ namespace ObamaWantsChange.model
 
 			}
 
-			System.Console.Write("CLI["+id+"] : "+Txt.NAVIPROMPT);
+			System.Console.Write("CLI["+Id+"] : "+Txt.NAVIPROMPT);
 			String command = System.Console.ReadLine();
 			int commandint = Convert.ToInt32(command);
 
@@ -72,7 +80,7 @@ namespace ObamaWantsChange.model
 
 		public void ListCampaigns()
 		{
-			Console.WriteLine("*** CURRENT CAMPAIGNS FOR CLIENT: " +name);
+			Console.WriteLine("*** CURRENT CAMPAIGNS FOR CLIENT: " +Name);
 			var clientQuery = from SingleCampaign queried in Campaigns select queried;
 
 			foreach (SingleCampaign asked in clientQuery)

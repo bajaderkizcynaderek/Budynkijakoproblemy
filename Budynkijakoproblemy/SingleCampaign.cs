@@ -9,7 +9,7 @@ namespace ObamaWantsChange.model
 {
 	public class SingleCampaign
 	{
-		static public int id_Increment;
+    public static int id_Increment;
 
 	[XmlAttribute]
 		public int id { get; set; }
@@ -62,6 +62,14 @@ namespace ObamaWantsChange.model
 		{
 			this.Products.Add(product);
 		}
+
+	    public SingleProduct AddProduct(string newProductName, string newProductDescription)
+	    {
+	        SingleProduct product = new SingleProduct(newProductName, newProductDescription);
+	        AddProduct(product);
+
+	        return product;
+	    }
 
 		public void Deactivate(){
 			this.active = false;

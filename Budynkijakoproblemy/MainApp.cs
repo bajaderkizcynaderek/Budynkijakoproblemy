@@ -78,8 +78,7 @@ namespace ObamaWantsChange
 
 				else if (command.Equals("test"))
 				{
-
-					model.AddTheShit();
+					this.AddTheShit();
 				}
 				else if (command.Equals("list"))
 				{
@@ -111,16 +110,78 @@ namespace ObamaWantsChange
 
 		}
 
+		public void AddTheShit()
+		{
+			// b/c i'm impatient, co za gowno posrane. na bank trzeba to przewalic do odpowiednich obiektow 
+			// aaaale nieeee wieeem jaaaaaaaaaaaaaaaaaak
+			// tak samo obiekty nie powinny same robic writeline
+			// tylko zwracac wartosci do renderera, aleeeee nieeee wieeeeem jeszczeeee
+			// JAAAAAAAAAAAK
 
-		public static void Main(string[] args) 
+			Console.WriteLine(Txt.ADDSHIT);
+
+			SingleClient client = CreateNewClient();
+
+		    // nowa kampania
+
+			Console.WriteLine(Txt.NEW_CAMPAIGN_NAME);
+			String newCampaignName = System.Console.ReadLine();
+
+			Console.WriteLine(Txt.NEW_CAMPAIGN_DESC);
+			String newCampaignDescription = System.Console.ReadLine();
+
+		    SingleCampaign campaign = model.AddNewCampaign(client.Id, newCampaignName, newCampaignDescription);
+
+			Console.WriteLine(Txt.DIVIDER);
+
+			// nowy produkt
+
+			Console.WriteLine(Txt.NEW_PRODUCT_NAME);
+			String newProductName = System.Console.ReadLine();
+
+			Console.WriteLine(Txt.NEW_PRODUCT_DESC);
+			String newProductDescription = System.Console.ReadLine();
+		    SingleProduct product = model.AddNewProduct(campaign.id, newProductName, newProductDescription);
+
+			Console.WriteLine(Txt.DIVIDER);
+
+			// i nowy, testowy fiks
+
+			Console.WriteLine(Txt.NEW_FIX_DESC);
+			String newFixDesc = System.Console.ReadLine();
+
+			Console.WriteLine(Txt.NEW_FIX_URL);
+			String newFixUrl = System.Console.ReadLine();
+
+			SingleFix fixToAdd = new SingleFix(newFixUrl, newFixDesc);
+			product.Fixes.Add(fixToAdd);
+			Console.WriteLine("Added fix with ID: " + fixToAdd.id + " , description: " + fixToAdd.description + ", image URL: " + fixToAdd.imageUrl);
+
+
+			Console.WriteLine(Txt.DIVIDER);
+
+		}
+
+	    private SingleClient CreateNewClient()
+	    {
+	        Console.WriteLine(Txt.NEW_CLIENT_NAME);
+	        String newClientName = System.Console.ReadLine();
+
+	        Console.WriteLine(Txt.NEW_CLIENT_DESC);
+	        String newClientDescription = System.Console.ReadLine();
+
+	        SingleClient client = model.AddNewClient(newClientName, newClientDescription);
+
+	        Console.WriteLine(Txt.DIVIDER);
+	        return client;
+	    }
+
+	    public static void Main(string[] args)
 
 		{
 			MyApplication AppInstance = new MyApplication();
 
 			AppInstance.Start();
-
-
-
 
 		}
 

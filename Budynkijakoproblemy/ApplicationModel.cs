@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using System.IO;
+using Budynkijakoproblemy;
 
 namespace ObamaWantsChange.model
 {
@@ -11,106 +12,21 @@ namespace ObamaWantsChange.model
 	public class MyApplicationModel
 	{
 		[XmlElement]
-		public List<SingleClient> Clients;
+		public List<SingleClient> Clients { get; set; }
 
 		public MyApplicationModel()
 		{
 			this.Clients = new List<SingleClient>();
 		}
 
-		public void AddClient(SingleClient client) 
+		public SingleClient AddNewClient(string newClientName, string newClientDescription)
 		{
+			SingleClient client = new SingleClient(newClientName, newClientDescription);
+			this.Clients.Add(client);
+		    Logger.Log("Added Client with ID: " + client.Id + " , name: "
+		               + client.Name + ", description: " + client.Description);
 
-
-		}
-
-		public void AddTheShit()
-		{
-		// b/c i'm impatient, co za gowno posrane. na bank trzeba to przewalic do odpowiednich obiektow 
-			// aaaale nieeee wieeem jaaaaaaaaaaaaaaaaaak
-			// tak samo obiekty nie powinny same robic writeline
-			// tylko zwracac wartosci do renderera, aleeeee nieeee wieeeeem jeszczeeee
-			// JAAAAAAAAAAAK
-
-			Console.WriteLine(Txt.ADDSHIT);
-
-			// nowy klient
-
-			Console.WriteLine(Txt.NEW_CLIENT_NAME);
-
-			String newClientName = System.Console.ReadLine();
-
-			Console.WriteLine(Txt.NEW_CLIENT_DESC);
-
-			String newClientDescription = System.Console.ReadLine();
-
-			SingleClient clientToAdd = new SingleClient(newClientName, newClientDescription);
-
-			Clients.Add(clientToAdd);
-
-			Console.WriteLine("Added Client with ID: "+ clientToAdd.id + " , name: " +clientToAdd.name + ", description: " + clientToAdd.description);
-
-			Console.WriteLine(Txt.DIVIDER);
-
-			// nowa kampania
-
-			Console.WriteLine(Txt.NEW_CAMPAIGN_NAME);
-
-			String newCampaignName = System.Console.ReadLine();
-
-			Console.WriteLine(Txt.NEW_CAMPAIGN_DESC);
-
-			String newCampaignDescription = System.Console.ReadLine();
-
-			SingleCampaign campaignToAdd = new SingleCampaign(newCampaignName,newCampaignDescription);
-
-			clientToAdd.Campaigns.Add(campaignToAdd);
-
-			Console.WriteLine("Added Campaign with ID: " + campaignToAdd.id + " , name: " + clientToAdd.name + ", description: " + clientToAdd.description);
-
-
-			Console.WriteLine(Txt.DIVIDER);
-
-			// nowy produkt
-
-			Console.WriteLine(Txt.NEW_PRODUCT_NAME);
-
-			String newProductName = System.Console.ReadLine();
-
-			Console.WriteLine(Txt.NEW_PRODUCT_DESC);
-
-			String newProductDescription = System.Console.ReadLine();
-
-			SingleProduct productToAdd = new SingleProduct(newProductName, newProductDescription);
-
-			campaignToAdd.Products.Add(productToAdd);
-
-
-			Console.WriteLine("Added Product with ID: " + productToAdd.id + " , name: " + productToAdd.name + ", description: " + productToAdd.description);
-
-
-			Console.WriteLine(Txt.DIVIDER);
-
-			// i nowy, testowy fiks
-
-			Console.WriteLine(Txt.NEW_FIX_DESC);
-
-			String newFixDesc = System.Console.ReadLine();
-
-			Console.WriteLine(Txt.NEW_FIX_URL);
-
-			String newFixUrl = System.Console.ReadLine();
-
-			SingleFix fixToAdd = new SingleFix(newFixUrl, newFixDesc);
-
-			productToAdd.Fixes.Add(fixToAdd);
-
-
-			Console.WriteLine("Added fix with ID: " + fixToAdd.id + " , description: " + fixToAdd.description + ", image URL: " + fixToAdd.imageUrl);
-
-
-			Console.WriteLine(Txt.DIVIDER);
-
+			return client;
 		}
 
 		public void ListTheList()
@@ -121,12 +37,12 @@ namespace ObamaWantsChange.model
 			foreach (SingleClient asked in clientQuery)
 			{
 				Console.WriteLine(Txt.DIVIDER);
-				Console.WriteLine("Client ID         : " + asked.id);
-				Console.WriteLine("Client Name       : " + asked.name);
-				Console.WriteLine("Client Description: " + asked.description);
+				Console.WriteLine("Client ID         : " + asked.Id);
+				Console.WriteLine("Client Name       : " + asked.Name);
+				Console.WriteLine("Client Description: " + asked.Description);
 				asked.ListCampaigns();
-   
-			
+
+
 			}
 		}
 
@@ -138,7 +54,7 @@ namespace ObamaWantsChange.model
 			foreach (SingleClient asked in clientQuery)
 			{
 				Console.WriteLine(Txt.DIVIDER);
-				Console.WriteLine("ID: " + asked.id+ " | Client Name: " + asked.name);
+				Console.WriteLine("ID: " + asked.Id+ " | Client Name: " + asked.Name);
 				//asked.ListCampaigns();
 
 			}
@@ -147,7 +63,7 @@ namespace ObamaWantsChange.model
 			String command = System.Console.ReadLine();
 			int commandint = Convert.ToInt32(command);
 				
-			var item = clientQuery.First(nosek => nosek.id == commandint);
+			var item = clientQuery.First(nosek => nosek.Id == commandint);
 			item.Navigate();
 
 			//switch command {
@@ -193,6 +109,42 @@ namespace ObamaWantsChange.model
 		// tu konczy sie przewalony na slepo kot
 
 
+	    public SingleCampaign AddNewCampaign(int clientId, string newCampaignName, string newCampaignDescription)
+	    {
+	        SingleClient client = FindClientById(clientId);
+	        SingleCampaign campaign = client.AddCampaign(newCampaignName, newCampaignDescription);
 
+	        Console.WriteLine("Added Campaign with ID: " + campaign.id + " , name: " + campaign.name
+	                          + ", description: " + campaign.description);
+
+	        return campaign;
+	    }
+
+	    public SingleProduct AddNewProduct(int campaignId, string newProductName, string newProductDescription)
+	    {
+	        SingleCampaign campaign = FindCampaignById(campaignId);
+	        SingleProduct product = campaign.AddProduct(newProductName, newProductDescription);
+
+	        Logger.Log("Added Product with ID: " + product.id + " , name: " + product.name
+	                          + ", description: " + product.description);
+
+	        return product;
+	    }
+
+	    private SingleClient FindClientById(int id)
+	    {
+	        return this.Clients.First(client => client.Id == id);
+	    }
+
+	    private SingleCampaign FindCampaignById(int campaignId)
+	    {
+	        var found = from client in this.Clients
+	            from campaign in client.Campaigns
+	            where campaign.id == campaignId
+	            select campaign;
+
+	        //TODO handle not found
+	        return found.First();
+	    }
 	}
 }
