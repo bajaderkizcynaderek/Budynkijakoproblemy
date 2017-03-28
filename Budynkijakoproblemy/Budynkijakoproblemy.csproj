@@ -41,6 +41,8 @@
     <Compile Include="SingleCampaign.cs" />
     <Compile Include="SingleClient.cs" />
     <Compile Include="Txt.cs" />
+    <Compile Include="Render.cs" />
+    <Compile Include="Input.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
